@@ -9,7 +9,7 @@ API simples para cadastro e movimentação de produtos em Laravel.
 ## Observações
 Tentei manter um padrão semelhante a uma API REST, além é claro do "MVC" disponibilazdo pelo próprio Laravel (apesar de não estar trabalhando com views propriamente ditas).
 
-As rotas foram testadas com o POSTMAN.
+As rotas foram testadas com o POSTMAN (json disponível também nesse repositório 'app-60c45f10.postman_collection.json').
 
 Não há um tratamento de erros elaborado devido tanto ao tamanho da aplicação quanto ao fato de que acreditei que o objetivo maior não ser a análise desse tipo de implementação (até mesmo pelo tempo).
 
