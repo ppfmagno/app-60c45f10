@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\MovimentacaoController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource('produtos', ProdutoController::class);
-Route::apiResource('movimentacoes', MovimentacaoController::class)->except([
-    'update', 'destroy'
-]);
+Route::apiResource('movimentacoes', MovimentacaoController::class)->except(['update', 'destroy']);
+Route::apiResource('historico', HistoricoController::class)->only(['index']);
