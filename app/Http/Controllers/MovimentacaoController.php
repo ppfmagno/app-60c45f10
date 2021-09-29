@@ -32,6 +32,12 @@ class MovimentacaoController extends Controller
 
         $produto = Produto::where('sku', $request->input('sku'))->first();
 
+        if (!$produto) {
+            return response()->json([
+                'error' => 'Não há registros do SKU informado nos produtos cadastrados.'
+            ], 400);
+        }
+
         $quantidadeMovimentacao = $request->input('quantidade');
         $quantidadeNova = $produto->quantidade + $quantidadeMovimentacao;
 
@@ -39,11 +45,11 @@ class MovimentacaoController extends Controller
             $produto->quantidade = $quantidadeNova;
             $produto->save();
 
-            return Movimentacao::created($request->all());
+            return Movimentacao::create($request->all());
         }
 
         return response()->json([
-            'error' => 'A quantidade a ser movimentada precisa deixar a quantidade final de produtos positiva'
+            'error' => 'A quantidade a ser movimentada precisa deixar a quantidade final de produtos positiva.'
         ], 400);
     }
 
