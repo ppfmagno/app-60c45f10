@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\MovimentacaoController;
 use App\Http\Controllers\ProdutoController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource('produtos', ProdutoController::class);
+Route::apiResource('movimentacoes', MovimentacaoController::class)->except([
+    'update', 'destroy'
+]);
